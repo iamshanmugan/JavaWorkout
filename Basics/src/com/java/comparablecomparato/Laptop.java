@@ -50,6 +50,8 @@ public class Laptop implements Comparable<Laptop> {
 		else {
 			return -1;
 		}
+		
+		
 	}
 	
 	
