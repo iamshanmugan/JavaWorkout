@@ -7,12 +7,20 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.Random;
 import java.util.Set;
+import java.util.function.BiPredicate;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class JavaBasics {
@@ -117,13 +125,69 @@ public class JavaBasics {
 //			}
 //		}
 //		// end : 10 :Find out the 2 number which is used to get the sum of given num
-//	    //------------------------------------------------------------------
-//		// start : 11 : predicate sample
-//		Predicate<Integer> eligibleAge = (x) -> x >= 13;
-//		System.out.println(eligibleAge.test(13));
-//		// end : 11 :  predicate sample
-//	    //------------------------------------------------------------------
+	    //------------------------------------------------------------------
+		// start : 11 : predicate sample
+		Predicate<Integer> eligibleAge = (x) -> x >= 13;
 		
+		
+		Predicate<Integer> checkEven = (c) -> c %2==0;
+		
+		
+		System.out.println("Check for one "+eligibleAge.test(13));
+		System.out.println("Check with join "+eligibleAge.and(checkEven).test(13));
+		System.out.println("Check with join "+eligibleAge.or(checkEven).test(13));
+		System.out.println("Check with join "+eligibleAge.negate().test(13));
+		
+		BiPredicate<Integer, Integer> bpredicate = (a,b) -> a+b > 5;
+		System.out.println("sum of 2 value is greater than 5 check "+ bpredicate.test(1,5));
+		
+		// end : 11 :  predicate sample
+	    //------------------------------------------------------------------
+//		// start : 12 : HashMap HashTable sample
+//		HashMap<String, Integer> hm = new HashMap<String, Integer>();
+//		hm.put("Shaan", 123);
+//		hm.put("Raju", 246);
+//		hm.put("Sachu", 678);
+//		hm.put("Nagaraja", 889);
+//		
+//		hm.forEach((key,value)->System.out.println("HASH MAP:: Key: "+key+"  ----  Value: "+value));
+//		
+//		Hashtable<Integer, String> ht = new Hashtable<Integer, String>();
+//		ht.put(122 ,"Vino");
+//		ht.put(222,"VAlli");
+//		ht.put(333,"Kani");
+//		
+//		Enumeration<Integer>  e = ht.keys();
+//		
+//		while(e.hasMoreElements()) {
+//			int key = e.nextElement();
+//			System.out.println("HASHTABLE :::: Key: "+key+"   value : "+ht.get(key));
+//		}
+//		
+//		// end : 12 : HashMap HashTable sample
+//	    //------------------------------------------------------------------
+//		// start : 13 : Fuction of the predifined Fuction interface
+//		Function<Integer, Integer> fn = (x) -> x * x;
+//		Function<Integer, Integer> fn2 = (x)-> x + x ;
+//		System.out.println(fn.andThen(fn2).apply(5));
+//		// end : 13 :  Fuction of the predifined Fuction interface
+//	    //------------------------------------------------------------------
+//		// start : 13 : Consumer predifined function interface
+//		Consumer<Integer> squareme =  i -> System.out.println("Square me");
+//		squareme.accept(5);
+//		
+//		Consumer<Integer> doubleme =  i -> System.out.println("Double me");
+//		doubleme.accept(5);
+//		
+//		squareme.andThen(doubleme).accept(5);
+//		
+//		// end : 13 : Consumer predifined function interface
+//	    //------------------------------------------------------------------
+//		// start : 14 : Supplier predifined function interface
+//		Supplier<Date> currDate =  () -> new Date();
+//		System.out.println(currDate.get());
+//		// end : 14 : Supplier predifined function interface
+//	    //------------------------------------------------------------------
 		
 	}
 
