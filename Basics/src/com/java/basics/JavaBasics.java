@@ -9,7 +9,10 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.Random;
+import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class JavaBasics {
@@ -56,13 +59,72 @@ public class JavaBasics {
 //		System.out.println(revString);
 //		// end : 05 : Reverse a String
 //	    //------------------------------------------------------------------
-//		//------------------------------------------------------------------
-//		// start : 06 : 10 Random number to generate and list in for each
-//		Random rndNum = new Random();
-//		rndNum.ints().limit(10).forEach(System.out::println);
-//		// end : 06 : Random number to generate and list in for each
+//		// start : 06 : using filter and optionalDouble
+//		
+//		Integer[] intList = new Integer[] {2,3,4,5,6,7,8,9,10,20,40, 50, 60}; 
+//		List<Integer> intListcnv =  Arrays.asList(intList);
+//		OptionalDouble value = intListcnv.stream().mapToInt(x -> x * x)
+//				.filter(x -> x > 100).average();
+//		if (value.isPresent()) {
+//			System.out.println(value);
+//		}
+//		// end : 06 : using filter and optionalDouble
 //	    //------------------------------------------------------------------
-
+//		// start : 07 : calculate the fibonic number for the index given
+//		int numofFibonciIndex =20;
+//		int givennum=5;
+//		int num1=0;
+//		int num2 = 1;
+//		int counter=0;
+//		while (counter <=numofFibonciIndex) {
+//			
+//			int num3 = num1 + num2;
+//			num1=num2;
+//			num2 =num3;
+//			counter++;
+//			if(givennum == counter ) {
+//				System.out.println(num3);
+//			}
+//			
+//			
+//		}
+//		// end : 07 : calculate the fibonic number for the index given
+//		//------------------------------------------------------------------
+//		// start : 08 : Get the second largest number from the arraylist
+//		int[] listOfNum = {10,20,30,40,50,60,70};
+//		int secLargest = Arrays.stream(listOfNum).boxed()
+//				.sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+//		System.out.println(secLargest);
+//		// end : 08 : Get the second largest number from the arraylist
+//	    //------------------------------------------------------------------
+//		// start : 09 : Remove duplicates from the arraylist
+//		Integer [] dupList = new Integer[]{4,3,2,9,2,9,5,6,7,8};
+//		List<Integer> uniqList = Arrays.asList(dupList);
+//		Set<Integer> setNoDup = uniqList.stream().collect(Collectors.toSet());
+//		System.out.println(setNoDup);
+//		// end : 09 : Remove duplicates from the arraylist
+//		//------------------------------------------------------------------
+//		// start : 10 : Find out the 2 number which is used to get the sum of given num
+//		Integer[] listOfNum = new Integer[]{1,2,3,4,5,6,7,8,9}; 
+//		int givenNum= 5;
+//		for(int i=0;i<listOfNum.length;i++) {
+//			int firstNum=listOfNum[i];
+//			for(int j= i+1; j<listOfNum.length;j++) {
+//				int secondNum=listOfNum[j];
+//				if (firstNum + secondNum == givenNum) {
+//					System.out.println("FirstNum"+ firstNum+"   Second Num "+ secondNum);
+//				}
+//			}
+//		}
+//		// end : 10 :Find out the 2 number which is used to get the sum of given num
+//	    //------------------------------------------------------------------
+//		// start : 11 : predicate sample
+//		Predicate<Integer> eligibleAge = (x) -> x >= 13;
+//		System.out.println(eligibleAge.test(13));
+//		// end : 11 :  predicate sample
+//	    //------------------------------------------------------------------
+		
+		
 	}
 
 }
